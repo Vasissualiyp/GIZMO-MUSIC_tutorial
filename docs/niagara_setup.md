@@ -14,7 +14,7 @@ Set `SYSTYPE` in `Makefile.systype` to `SciNet`.
 You can get more tips from Fergus in `Makefile`, just search for
 `SciNet` string.
 
-You're all set to [run GIZMO](docs/gizmo_setup.md).
+You're all set to [run GIZMO](gizmo_setup.md).
 
 ### Things to do before you run MUSIC:
 
@@ -22,4 +22,4 @@ You're all set to [run GIZMO](docs/gizmo_setup.md).
 Under construction...
 ```
 
-You're all set to [run MUSIC](docs/music_setup.md).
+You're all set to [run MUSIC](music_setup.md).

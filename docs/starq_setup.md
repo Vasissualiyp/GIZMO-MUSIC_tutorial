@@ -22,7 +22,7 @@ code on non-starq machines (I believe the reason behind this is in other machine
 using Intel processors, while the starq is AMD-based). So you must include compilation
 steps in your submission scripts.
 
-You're all set to [run GIZMO](docs/gizmo_setup.md).
+You're all set to [run GIZMO](gizmo_setup.md).
 
 ### Things to do before you run MUSIC:
 
@@ -30,4 +30,4 @@ You're all set to [run GIZMO](docs/gizmo_setup.md).
 Under construction...
 ```
 
-You're all set to [run MUSIC](docs/music_setup.md).
+You're all set to [run MUSIC](music_setup.md).
