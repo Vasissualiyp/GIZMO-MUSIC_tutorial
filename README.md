@@ -12,9 +12,8 @@ This tutorial provides a step-by-step guide to setting up and running cosmologic
    - [Installing GIZMO](#installing-gizmo)
 4. [Generating Initial Conditions with MUSIC](#generating-initial-conditions-with-music)
 5. [Running GIZMO](#running-gizmo)
-6. [Visualizing Results](#visualizing-results)
-7. [Troubleshooting](#troubleshooting)
-8. [References](#references)
+6. [Troubleshooting](#troubleshooting)
+7. [References](#references)
 
 ---
 
@@ -23,21 +22,17 @@ This tutorial provides a step-by-step guide to setting up and running cosmologic
 **GIZMO** is a robust astrophysical simulation code capable of performing hydrodynamic, cosmological, and gravitational N-body simulations. **MUSIC** is used to generate the initial conditions for cosmological simulations, setting up the required density and velocity fields.
 
 This guide will walk you through the process of:
+- Setting up GIZMO+MUSIC on any available clusters
 - Setting up MUSIC to generate initial conditions.
 - Configuring GIZMO to run simulations using these initial conditions.
-- Visualizing simulation results.
 
 ---
 
-## 🔧 Prerequisites
-
-Before you begin, ensure the following are installed on your system:
-
-- **Linux** or **macOS** operating system
-- A modern C++ compiler (e.g., `gcc`, `clang`)
-- **MPI** (Message Passing Interface) library
-- **HDF5** library for GIZMO output (optional, but recommended)
-- Python and visualization tools (e.g., `yt`, `matplotlib`)
+## 🖥 **Cluster Setup**
+- [Setting up on Niagara](docs/niagara_setup.md): Step-by-step guide for SciNet’s Niagara supercomputer.
+- [Setting up on CITA Cluster](docs/cita_setup.md): Instructions for deploying on CITA’s general-purpose cluster.
+- [Setting up on CITA Starq Cluster](docs/starq_setup.md): Specific setup for the Starq cluster.
+- [Setting up on Any Machine with Nix](docs/nix_setup.md): Universal setup guide for any NixOS-compatible machine.
 
 ---
 
