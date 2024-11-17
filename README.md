@@ -6,7 +6,7 @@ This tutorial provides a step-by-step guide to setting up and running cosmologic
 
 ## 🗂️ Table of Contents
 1. [Introduction](#introduction)
-2. [Prerequisites](#prerequisites)
+2. [Prerequisites](#cluster setup)
 3. [Installation](#installation)
    - [Installing MUSIC](#installing-music)
    - [Installing GIZMO](#installing-gizmo)
@@ -26,117 +26,44 @@ This guide will walk you through the process of:
 - Setting up MUSIC to generate initial conditions.
 - Configuring GIZMO to run simulations using these initial conditions.
 
+### 🤖 Note on automated setup
+Instead of having to manually git clone the repos and go through all the tedious
+steps, described below, I have a repository which basically allows plug-and-play
+set up of GIZMO, STARFORGE, MUSIC, PeakPatch, Rockstar, and Grackle codes on any 
+cluster. So if you need to get the stuff done fast, can just check it out
+on my [GitHub](https://github.com/Vasissualiyp/GIZMO-setup). The guide below is
+if you want to understand what is happening under the hood and if you want
+to have full control over the proccess of your simulation setup.
+
 ---
 
 ## 🖥 **Cluster Setup**
-- [Setting up on Niagara](docs/niagara_setup.md): Step-by-step guide for SciNet’s Niagara supercomputer.
-- [Setting up on CITA Cluster](docs/cita_setup.md): Instructions for deploying on CITA’s general-purpose cluster.
-- [Setting up on CITA Starq Cluster](docs/starq_setup.md): Specific setup for the Starq cluster.
-- [Setting up on Any Machine with Nix](docs/nix_setup.md): Universal setup guide for any NixOS-compatible machine.
+
+Generally, before you run/compile anything, you should load required modules (i.e. compilers, FFTW, HDF5, etc.), and set some machine-specific settings. Below are such preparations for all machines I worked on as for November 2024:
+- [Setting up on Niagara](docs/niagara_setup.md)
+- [Setting up on CITA Cluster](docs/cita_setup.md)
+- [Setting up on CITA Starq Cluster](docs/starq_setup.md)
+- [Setting up on Any Machine with Nix](docs/nix_setup.md)
 
 ---
 
-## ⚙️ Installation
+## 🚀 Setting up GIZMO
 
-### Installing MUSIC
+[How to set up GIZMO](docs/gizmo_setup.md)
 
-1. Clone the MUSIC repository:
-   ```bash
-   git clone https://github.com/hd4/MUSIC.git
-   cd MUSIC
-   ```
+## 🎶 Setting up MUSIC
 
-2. Build MUSIC:
-   ```bash
-   make
-   ```
+[How to set up MUSIC](docs/music_setup.md)
 
-3. Verify installation:
-   ```bash
-   ./MUSIC --version
-   ```
+## 🌌 GIZMO+MUSIC quirks
 
-### Installing GIZMO
+## 🔡 Sample run parameters and how to  use them
 
-1. Clone the GIZMO repository:
-   ```bash
-   git clone https://bitbucket.org/phopkins/gizmo-public.git
-   cd gizmo-public
-   ```
+## 🛠️ FAQ
 
-2. Configure and build:
-   - Edit the `Makefile` to suit your system configuration.
-   - Compile the code:
-     ```bash
-     make
-     ```
-
-3. Verify installation by running a test problem:
-   ```bash
-   ./GIZMO test_galaxy.param
-   ```
-
----
-
-## 🌌 Generating Initial Conditions with MUSIC
-
-1. Create a parameter file for MUSIC:
-   ```bash
-   cp example_param.ini my_simulation.ini
-   ```
-   Modify the file to set:
-   - **Box size**
-   - **Cosmological parameters**
-   - **Grid resolution**
-
-2. Run MUSIC to generate initial conditions:
-   ```bash
-   ./MUSIC my_simulation.ini
-   ```
-
-3. Output files (e.g., `ics.dat`) will be generated in the specified output directory.
-
----
-
-## 🚀 Running GIZMO
-
-1. Copy the initial conditions file (`ics.dat`) to the GIZMO directory:
-   ```bash
-   cp path_to_ics/ics.dat gizmo-public/
-   ```
-
-2. Create or modify a parameter file for GIZMO (e.g., `my_simulation.param`) to match your simulation setup:
-   ```bash
-   cp test_galaxy.param my_simulation.param
-   ```
-
-3. Run GIZMO:
-   ```bash
-   mpirun -np 4 ./GIZMO my_simulation.param
-   ```
-
-4. Monitor the progress by examining the output files (e.g., snapshots and logs).
-
----
-
-## 🔍 Visualizing Results
-
-To visualize the results, use tools such as:
-- **[yt](https://yt-project.org/)**: 
-   ```python
-   import yt
-   ds = yt.load("snapshot_000.hdf5")
-   yt.SlicePlot(ds, "z", "density").show()
-   ```
-- **Visualization software** like `ParaView` or `VisIt`.
-
----
-
-## 🛠️ Troubleshooting
+Ask questions in person or on GitHub Issues! Here's some general info:
 
 - **Compilation Errors**: Check your `Makefile` for correct library paths.
-- **MUSIC Runtime Errors**: Ensure cosmological parameters are valid.
-- **GIZMO Crashes**: Check logs for clues, verify initial conditions.
 
 ---
 
