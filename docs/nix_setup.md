@@ -27,7 +27,7 @@ All the packages will be downloaded and you will automatically enter the GIZMO+M
 
 After you did this, the only thing to do would be to add instructions to `Makefile` 
 if you're using GIZMO, and set `SYSTYPE` in `Makefile.systype` to `nix`.
-You can get the instructions in `template` directory of this tutorial, and follow the 
+You can get the instructions in `templates` directory of this tutorial, and follow the 
 [GIZMO set-up guide](gizmo_setup.md) to see how to put it in.
 
 ### Troubleshooting
