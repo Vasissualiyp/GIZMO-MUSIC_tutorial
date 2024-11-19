@@ -4,7 +4,7 @@ Return to the [Main README](../README.md)
 
 Once you loaded all the necessary modules on your machine, here are the 
 steps that you have to undergo if you want to run GIZMO:
-1. [Git clone relevant GIZMO repo](#git clone gizmo repo)
+1. [Git clone relevant GIZMO repo](#git-clone-gizmo-repo)
 2. Add your system compile flags to `Makefile` (only for starq or if the system is not in the gizmo repo yet)
 3. Change `Makefile.systype` to your system name
 4. Move `TREECOOL` to your runtime directory
