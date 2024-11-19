@@ -108,6 +108,9 @@ Check out [gizmo docs](http://www.tapir.caltech.edu/~phopkins/Site/GIZMO_files/g
 for a complete set of instructions on what flags do what.
 Add all those to `Config.sh` file in gizmo source directory.
 
+Similarly to all other parameter files, sample `Config.sh` is also
+provided in `templates` directory.
+
 ## Get spcool tables
 
 The way that we usually add the cooling tables is the same way it is recommended
