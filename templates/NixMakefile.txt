@@ -1,0 +1,22 @@
+ifeq ($(SYSTYPE),"Nix")
+CC       =  mpicc
+CXX      =  mpiCC
+OPTIMIZE =  -O3 
+#OPTIMIZE+= -g -Wall # For debugging
+ifeq (OPENMP,$(findstring OPENMP,$(CONFIGVARS)))
+	OPTIMIZE += -qopenmp -parallel   # openmp required compiler flags
+endif
+FC       =  mpifort
+GSL_INCL =  -I$(GSL_INCLUDE_PATH)
+GSL_LIBS =  -L$(GSL_INCLUDE_PATH) -mkl
+FFTW_INCL=  -I$(GSL_INCLUDE_PATH)
+FFTW_LIBS=  -L$(GSL_INCLUDE_PATH)
+MPICHLIB =
+HDF5INCL =  -I$(HDF5_INCLUDE_PATH) -DH5_USE_16_API
+HDF5LIB  =  -L$(HDF5_LIBRARY_PATH) -lhdf5 -lz
+OPT     += -I./include -DUSE_MPI_IN_PLACE -DHDF5_DISABLE_VERSION_CHECK
+## Notes [Fergus Horrobin]:
+##
+## Don't forget to also change the line 'PERL = /usr/bin/perl' to
+## 'PERL = $(PERL_PATH)/bin/perl' in the beginning of Makefile!
+endif 
