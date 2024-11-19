@@ -18,7 +18,10 @@ You're all set to [run GIZMO](gizmo_setup.md).
 ### Things to do before you run MUSIC:
 
 ```
-Under construction...
+module load gcc hdf5 gsl fftw
 ```
+
+So you can just use the same modules as GIZMO, other than the compiler
+(it requires gcc, not intel)
 
 You're all set to [run MUSIC](music_setup.md).

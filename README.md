@@ -47,17 +47,19 @@ Generally, before you run/compile anything, you should load required modules (i.
 
 ---
 
-## 🚀 Setting up GIZMO
-
-[How to set up GIZMO](docs/gizmo_setup.md)
-
 ## 🎶 Setting up MUSIC
 
 [How to set up MUSIC](docs/music_setup.md)
 
-## 🌌 GIZMO+MUSIC quirks
+## 🚀 Setting up GIZMO
 
-## 🔡 Sample run parameters and how to  use them
+[How to set up GIZMO](docs/gizmo_setup.md)
+
+## 🌌 How to run GIZMO+MUSIC
+
+[How to generate GIZMO ICs with MUSIC](docs/music_gizmo_ics.md)
+
+## 🔡 Sample run parameters and how to use them
 
 ## 🛠️ FAQ
 

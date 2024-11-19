@@ -27,7 +27,11 @@ You're all set to [run GIZMO](gizmo_setup.md).
 ### Things to do before you run MUSIC:
 
 ```
-Under construction...
+module load gcc/13.2.0 gsl/2.7.1 hdf5/1.12.1-ucx fftw/3.3.10-openmpi-ucx
 ```
+
+So you can just use the same modules as GIZMO.
+
+Similar to GIZMO, you should include compilation steps in your submission script.
 
 You're all set to [run MUSIC](music_setup.md).

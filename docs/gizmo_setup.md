@@ -44,7 +44,9 @@ After you git cloned successfully, navigate to the new directory:
 cd gizmo
 ```
 This is GIZMO source code. Here of current interest we have 3 files:
-`Makefile`, `Makefile.systype`, and `Config.sh`.
+`Makefile`, `Makefile.systype`, and `Config.sh` 
+(the last one is not created yet, but you can check out 
+`Template_Config.sh` to get an example.
 
 ## Makefile edits
 **This only applies if you are running on starq on nix! 
@@ -190,7 +192,7 @@ job to cluster using submission script. Just grab one of them for your
 machine from the `templates` directory, change the path to parameters file
 and GIZMO executable (if needed), and you should be all set!
 
-The submission scripts have filenames of format `run_machine.sh` and are 
+The submission scripts have filenames of format `gizmo_run_machine.sh` and are 
 designed to work with sample parameters out of the box.
 
 ## Submit the job
