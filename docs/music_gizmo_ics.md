@@ -15,8 +15,8 @@ Here is a step-by-step process of doing that:
 4. [Figure out the geometric parameters of the zoom-in region](g#eometric-parameters-of-zoom-in-region-at-low-z)
 5. [Correspond particles at final snapshot to the particles in the ICs](#corresponding-particles)
 6. [Identify the region of zoom-in in ICs](#geometric-parameters-of-zoom-in-region-at-high-z)
-7. [Re-create MUSIC ICs with baryons and zoom-in region](#dm+baryons-ics)
-8. [???](#???)
+7. [Re-create MUSIC ICs with baryons and zoom-in region](#dm-with-baryons-ics)
+8. [???](#next)
 9. Profit!
 
 ## DM ICs
@@ -89,7 +89,7 @@ either box high-res region, or ellipsoidal high-res region.
 Either way, more info is in the 
 [MUSIC Documentation](https://www-n.oca.eu/ohahn/MUSIC/)
 
-## DM+baryons ICs
+## DM with baryons ICs
 
 Once you have your region parameters, put them into your original DM-only MUSIC config file.
 Then, make sure that you take care of the following:
@@ -101,7 +101,7 @@ Then, make sure that you take care of the following:
 * Make sure that you set the seed for EVERY refinement level (in template, it would be `seed[8]-seed[12]`).
   Otherwise, you won't be able to reproduce these ICs.
 
-### ???
+## Next?
 
 Congratulations, you have your MUSIC-generated cosmological ICs! 
 It wasn't that hard, and wasn't that much work, right? Right?..
