@@ -6,14 +6,11 @@ This tutorial provides a step-by-step guide to setting up and running cosmologic
 
 ## 🗂️ Table of Contents
 1. [Introduction](#introduction)
-2. [Prerequisites](#cluster setup)
-3. [Installation](#installation)
-   - [Installing MUSIC](#installing-music)
-   - [Installing GIZMO](#installing-gizmo)
-4. [Generating Initial Conditions with MUSIC](#generating-initial-conditions-with-music)
-5. [Running GIZMO](#running-gizmo)
-6. [Troubleshooting](#troubleshooting)
-7. [References](#references)
+2. [Cluster Setup](#cluster-setup)
+3. [MUSIC/GIZMO Setup](#code-setup)
+4. [Sample Run Files](#sample-run-parameters-and-how-to-use-them)
+5. [FAQ](#faq)
+6. [References](#references)
 
 ---
 
@@ -45,21 +42,37 @@ Generally, before you run/compile anything, you should load required modules (i.
 - [Setting up on CITA Starq Cluster](docs/starq_setup.md)
 - [Setting up on Any Machine with Nix](docs/nix_setup.md)
 
----
+## 💻 **Code Setup**
 
-## 🎶 Setting up MUSIC
+[🎶 How to set up MUSIC](docs/music_setup.md)
 
-[How to set up MUSIC](docs/music_setup.md)
+[🚀 How to set up GIZMO](docs/gizmo_setup.md)
 
-## 🚀 Setting up GIZMO
-
-[How to set up GIZMO](docs/gizmo_setup.md)
-
-## 🌌 How to run GIZMO+MUSIC
-
-[How to generate GIZMO ICs with MUSIC](docs/music_gizmo_ics.md)
+[🌌 How to generate GIZMO ICs with MUSIC](docs/music_gizmo_ics.md)
 
 ## 🔡 Sample run parameters and how to use them
+
+MUSIC parameter files:
+* `music_dm_only.conf`
+* `music_b+dm.conf`
+
+GIZMO Makefile system files:
+* `NixMakefile.txt`
+* `CITA-starqMakefile.txt`
+
+GIZMO parameter files:
+* `Config.sh`
+* `gizmo.params`
+
+MUSIC job submisson files:
+* `run_starq.sh`
+* `run_CITA.sh`
+* `run_Niagara.sh`
+
+GIZMO job submisson files:
+* `run_starq.sh`
+* `run_CITA.sh`
+* `run_Niagara.sh`
 
 ## 🛠️ FAQ
 
