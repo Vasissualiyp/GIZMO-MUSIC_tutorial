@@ -1,13 +1,18 @@
 Return to the [Main README](../README.md)
 # Setting up GIZMO+MUSIC on any maching using Nix Flakes
 
+*Current status: MUSIC works with Nix flake (talk to me to get acces to it),
+and so far I almost got GIZMO to work, but didn't finish writing the flake
+(there was no need).
+Please, let me know if you DO have the need in running GIZMO locally!*
+
+### Nix Flakes?
 I wrote a [nix](https://nixos.org/) [flake](https://nixos.wiki/wiki/Flakes) 
 to be able to use GIZMO/MUSIC locally on any nix-enabled machine.
-The flake is in this repository.
+The flake is in another repository.
 
 Running through nix flake is recommended for personal use,
 including on Linux, MacOS, or Windows via WSL.
-For information about running through the flake, look into [flake.nix](./flake.nix).
 
 The Nix flake is for use with NixOS or nix package manager. 
 Nix package manager is available on Linux,

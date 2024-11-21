@@ -50,11 +50,11 @@ Generally, before you run/compile anything, you should load required modules (i.
 
 [🌌 How to generate GIZMO ICs with MUSIC](docs/music_gizmo_ics.md)
 
-## 🔡 Sample run parameters 
+## 🔡 Template files
 
-MUSIC parameter files:
-* `music_dm_only.conf`
-* `music_b+dm.conf`
+MUSIC config files:
+* `music_dm_only.conf` - config file for DM-only ICs 
+* `music_b+dm.conf` - config file for DM+baryons ICs 
 
 GIZMO Makefile system files:
 * `NixMakefile.txt`
@@ -62,8 +62,9 @@ GIZMO Makefile system files:
 
 GIZMO parameter files:
 * `Config.sh`
-* `gizmo.params` - parameter file for DM-only MUSIC run!
-* 
+* `gizmo_dm.params` - parameter file for DM-only MUSIC-generated ICs run
+* `gizmo_b+dm.params` - parameter file for DM+baryons MUSIC-generated ICs run
+ 
 GIZMO job submisson files:
 * `Grun_starq.sh`
 * `Grun_CITA.sh`
