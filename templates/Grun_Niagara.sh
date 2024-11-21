@@ -11,6 +11,6 @@ cd $SLURM_SUBMIT_DIR
 module load intel intelmpi gsl hdf5 fftw
 
 gizmo_dir="./gizmo"
-params_dir="./templates"
+params_file="./templates/gizmo_dm.params"
 
-mpirun "$gizmo_dir/GIZMO" "$params_dir/gizmo.params"
+mpirun "$gizmo_dir/GIZMO" "$params_file"
