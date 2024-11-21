@@ -1,4 +1,4 @@
-# 🚀 Tutorial: Running GIZMO with MUSIC 🛠️
+[#](#) 🚀 Tutorial: Running GIZMO with MUSIC 🛠️
 
 This tutorial provides a step-by-step guide to setting up and running cosmological simulations using **GIZMO** (a versatile astrophysical simulation code) with **MUSIC** (Multiscale Initial Conditions Generator).
 
@@ -50,7 +50,7 @@ Generally, before you run/compile anything, you should load required modules (i.
 
 [🌌 How to generate GIZMO ICs with MUSIC](docs/music_gizmo_ics.md)
 
-## 🔡 Sample run parameters and how to use them
+## 🔡 Sample run parameters 
 
 MUSIC parameter files:
 * `music_dm_only.conf`
@@ -62,17 +62,17 @@ GIZMO Makefile system files:
 
 GIZMO parameter files:
 * `Config.sh`
-* `gizmo.params`
+* `gizmo.params` - parameter file for DM-only MUSIC run!
+* 
+GIZMO job submisson files:
+* `Grun_starq.sh`
+* `Grun_CITA.sh`
+* `Grun_Niagara.sh`
 
 MUSIC job submisson files:
-* `run_starq.sh`
-* `run_CITA.sh`
-* `run_Niagara.sh`
-
-GIZMO job submisson files:
-* `run_starq.sh`
-* `run_CITA.sh`
-* `run_Niagara.sh`
+* `Mrun_starq.sh`
+* `Mrun_CITA.sh`
+* `Mrun_Niagara.sh`
 
 ## 🛠️ FAQ
 
