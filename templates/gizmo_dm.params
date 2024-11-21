@@ -13,8 +13,9 @@ SnapFormat    3    % 1=unformatted (gadget) binary, 3=hdf5
 %---- Output parameters
 RestartFile                  restart
 SnapshotFileBase             snapshot
-OutputListOn                 1                             % = 1 to use list in "OutputListFilename"
-OutputListFilename           /scratch/m/murray/vasissua/FIRE_TEST2/snapshot_scale-factors.txt
+OutputListOn                 0                             % = 1 to use list in "OutputListFilename"
+TimeOfFirstSnapshot          0.1
+TimeBetSnapshot              1.1
 NumFilesPerSnapshot          4
 NumFilesWrittenInParallel    4                            % must be <= N_processors and power of 2
 

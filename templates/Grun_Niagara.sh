@@ -10,4 +10,4 @@ cd $SLURM_SUBMIT_DIR
 
 module load intel intelmpi gsl hdf5 fftw
 
-mpirun ./gizmo/GIZMO ./zel.params
+mpirun ./gizmo/GIZMO ./templates/gizmo.params
