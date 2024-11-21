@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --nodes=1
+#SBATCH --nodes=4
 #SBATCH --ntasks-per-node=40
 #SBATCH	--time=24:00:00
 #SBATCH --job-name=GIZMO_TEST_1
@@ -10,4 +10,7 @@ cd $SLURM_SUBMIT_DIR
 
 module load intel intelmpi gsl hdf5 fftw
 
-mpirun ./gizmo/GIZMO ./templates/gizmo.params
+gizmo_dir="./gizmo"
+params_dir="./templates"
+
+mpirun "$gizmo_dir/GIZMO" "$params_dir/gizmo.params"

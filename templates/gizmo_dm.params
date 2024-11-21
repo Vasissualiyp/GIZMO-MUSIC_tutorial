@@ -16,8 +16,8 @@ SnapshotFileBase             snapshot
 OutputListOn                 0                             % = 1 to use list in "OutputListFilename"
 TimeOfFirstSnapshot          0.1
 TimeBetSnapshot              1.1
-NumFilesPerSnapshot          4
-NumFilesWrittenInParallel    4                            % must be <= N_processors and power of 2
+NumFilesPerSnapshot          1
+NumFilesWrittenInParallel    1                            % must be <= N_processors and power of 2
 
 %---- Output frequency (use if OutputListOn = 0)
 TimeOfFirstSnapshot    0.01     % time (code units) of first snapshot
