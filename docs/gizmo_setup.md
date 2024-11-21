@@ -165,6 +165,26 @@ you will be referencing it when you will be running GIZMO.
 Sample `gizmo.params` is provided in this tutorial repo, in the 
 `templates` directory. You have to run MUSIC to generate initial conditions
 for GIZMO first, running GIZMO without MUSIC first would result in your run failing. 
+It should mostly run with MUSIC-generated ICs, except `MaxMemSize` flag
+should be edited (see below).
+
+Here are just some of the things you should check:
+* **IMPORTANT** `MaxMemSize` is not set in the sample parameter file.
+  It is basically how much memory is available per core. 
+  Through my testing, I found that these values are good:
+  * 4000 for Niagara
+  * 4000 for Niagara
+  * 7500 for CITA
+  * 7500 for CITA-starq (It might be more, but I didn't test it
+  * On a personal machine, it depends. Try increasing until GIZMO refuses to run.
+* Make sure that your Initial Conditions (ICs) are generated and are in the 
+  specified location (`InputCondFile`)
+* Make sure that `OutputDir` exists or at least create it in your job submission
+* Make sure that you set the `ICFormat` to the format of your ICs 
+  (it's usually 1 for MUSIC-generated ICs, since it's just GADGET binary,
+  but should be 3 for hdf5 snapshots created by GIZMO)
+* Make sure that `TimeOfFirstSnapshot` corresponds to the time in the ICs
+* Make sure that your cosmology matches your ICs
 
 ## Create submission script
 
