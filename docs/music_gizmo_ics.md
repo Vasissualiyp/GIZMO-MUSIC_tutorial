@@ -104,4 +104,9 @@ Then, make sure that you take care of the following:
 ## Next?
 
 Congratulations, you have your MUSIC-generated cosmological ICs! 
+Don't forget to set the name of this new ICs file as input for GIZMO.
+Don't forget to change the parameter file that is used in your 
+submission script, so that it uses a new parameter file.
+Also, make sure to set `Omega_b` to whatever is the value of your cosmology
+in GIZMO run parameter file (it was 0 for your DM-only run).
 It wasn't that hard, and wasn't that much work, right? Right?..
