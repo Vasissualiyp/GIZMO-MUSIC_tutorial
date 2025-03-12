@@ -169,13 +169,13 @@ It should mostly run with MUSIC-generated ICs, except `MaxMemSize` flag
 should be edited (see below).
 
 Here are just some of the things you should check:
-* **IMPORTANT** `MaxMemSize` is not set in the sample parameter file.
-  It is basically how much memory is available per core. 
+* **IMPORTANT!** `MaxMemSize` is not set in the sample parameter file.
+  It is basically how much memory is available per core. You get it by calculating 
+  _Memory per node_ / _Number of cores_, and accounting for overhead for OS and stuff (around 1GB).
   Through my testing, I found that these values are good:
-  * 4000 for Niagara
-  * 4000 for Niagara
-  * 7500 for CITA
-  * 7500 for CITA-starq (It might be more, but I didn't test it
+  * 4000 for Niagara (40 cores, 202 GB per node)
+  * 7500 for CITA (but depends on which of the queues you're using! Do testing yourself)
+  * 7500 for CITA-starq (128 cores, 1024 GB per node)
   * On a personal machine, it depends. Try increasing until GIZMO refuses to run.
 * Make sure that your Initial Conditions (ICs) are generated and are in the 
   specified location (`InputCondFile`)
@@ -212,7 +212,7 @@ job to cluster using submission script. Just grab one of them for your
 machine from the `templates` directory, change the path to parameters file
 and GIZMO executable (if needed), and you should be all set!
 
-The submission scripts have filenames of format `gizmo_run_machine.sh` and are 
+The submission scripts have filenames of format `Grun_machine.sh`, i.e. `Grun_niagara.sh` and are 
 designed to work with sample parameters out of the box.
 
 ## Submit the job
