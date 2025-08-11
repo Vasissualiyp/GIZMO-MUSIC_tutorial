@@ -74,7 +74,8 @@ any other systems (by default it is Frontera).
 
 If your machine isn't there, comment everything out and append your system
 just like any other. The variables for our machines are 
-* `SciNet` for Niagara
+* `Trillium` for SciNet Trillium
+* `SciNet` for SciNet Niagara
 * `CITA` for non-starq CITA machines
 * `CITA-starq` for starq
 * `Nix` for nix
@@ -173,6 +174,7 @@ Here are just some of the things you should check:
   It is basically how much memory is available per core. You get it by calculating 
   _Memory per node_ / _Number of cores_, and accounting for overhead for OS and stuff (around 1GB).
   Through my testing, I found that these values are good:
+  * 4000 for Trillium (192 cores, 768 GB per node)
   * 4000 for Niagara (40 cores, 202 GB per node)
   * 7500 for CITA (but depends on which of the queues you're using! Do testing yourself)
   * 7500 for CITA-starq (128 cores, 1024 GB per node)
@@ -207,13 +209,16 @@ For instance, if you want to run with sample parameter file, and you git cloned
 This should run GIZMO directly.
 
 Most of hydro runs are very big however, and running them on a local machine
-is not an option. So for Niagara, CITA and CITA-starq, you can submit the 
+is not an option. So for Trillium, Niagara, CITA and CITA-starq, you can submit the 
 job to cluster using submission script. Just grab one of them for your 
 machine from the `templates` directory, change the path to parameters file
 and GIZMO executable (if needed), and you should be all set!
 
-The submission scripts have filenames of format `Grun_machine.sh`, i.e. `Grun_niagara.sh` and are 
+The submission scripts have filenames of format `Grun_machine.sh`, i.e. 
+`Grun_niagara.sh` and are 
 designed to work with sample parameters out of the box.
+
+**For Trillium, reuse Niagara submission scripts, but change number of tasks to 192!**
 
 ## Submit the job
 

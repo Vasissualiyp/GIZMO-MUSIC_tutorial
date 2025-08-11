@@ -37,6 +37,7 @@ to have full control over the proccess of your simulation setup.
 ## 🖥 **Cluster Setup**
 
 Generally, before you run/compile anything, you should load required modules (i.e. compilers, FFTW, HDF5, etc.), and set some machine-specific settings. Below are such preparations for all machines I worked on as for November 2024:
+- [Setting up on Trillium](docs/trillium_setup.md)
 - [Setting up on Niagara](docs/niagara_setup.md)
 - [Setting up on CITA Cluster](docs/cita_setup.md)
 - [Setting up on CITA Starq Cluster](docs/starq_setup.md)
