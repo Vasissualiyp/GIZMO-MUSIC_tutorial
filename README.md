@@ -2,6 +2,8 @@
 
 This tutorial provides a step-by-step guide to setting up and running cosmological simulations using **GIZMO** (a versatile astrophysical simulation code) with **MUSIC** (Multiscale Initial Conditions Generator).
 
+Please ⭐ if this was useful!
+
 ---
 
 ## 🗂️ Table of Contents
