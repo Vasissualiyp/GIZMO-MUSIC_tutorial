@@ -17,6 +17,10 @@ make sure that Trillium is not a part of any other machine instructions).
 Set `SYSTYPE` in `Makefile.systype` to `Trillium`.
 You can get more tips from Vasilii in `Makefile`, in the segment that you just pasted.
 
+Another thing to do as of Sept. 2025 (if you are using the latest master branch from August 12th), is 
+fix the imbalanced brackets if your code fails to compile. Namely, add 2 brackets in line 861 in file 
+`galaxy_sf/blackholes/blackhole_swallow_and_kick.c`
+
 You're all set to [run GIZMO](gizmo_setup.md).
 
 ### Things to do before you run MUSIC:
