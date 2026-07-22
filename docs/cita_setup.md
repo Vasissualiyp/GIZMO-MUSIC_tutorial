@@ -1,6 +1,8 @@
 Return to the [Main README](../README.md)
 # Setting up GIZMO+MUSIC on CITA non-starq machines and HPC clusters
 
+THIS GUIDE IS OUTDATED! The new, up-to-date guide is [here](./cita_setup2.md).
+
 ### Things to do before you run GIZMO:
 
 Before you do anything, load these modules:
