@@ -1,5 +1,5 @@
 
-ifeq ($(SYSTYPE),"CITA-starq")
+ifeq ($(SYSTYPE),"CITA-new")
 CC       =  mpicc
 CXX      =  mpicxx
 #OPTIMIZE =  -O2 -funroll-loops -finline-functions -march=native -flto -fno-fat-lto-objects
