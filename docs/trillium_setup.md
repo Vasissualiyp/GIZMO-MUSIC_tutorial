@@ -14,12 +14,21 @@ Then, in GIZMO Makefile, search for "CITA". And insert the whole block before
 `ifeq ($(SYSTYPE),"CITA")` statement (Or after its corresponding endif, you just have to
 make sure that Trillium is not a part of any other machine instructions).
 
-Set `SYSTYPE` in `Makefile.systype` to `Trillium`.
+If you are using the new C++ code from [github.com/pfhopkins/gizmo](https://github.com/pfhopkins/gizmo)
+(see [GIZMO setup](gizmo_setup.md#git-clone-gizmo-repo)), also add `CXX = mpicxx` to that block, right below
+the `CC = mpicc` line. The template in `templates` was written for the older C code and does not have it yet.
+
+Set `SYSTYPE` to `Trillium`. The easiest way is to do it once for good, by creating `~/.gizmo` on Trillium:
+```
+echo 'SYSTYPE="Trillium"' > ~/.gizmo
+```
+Alternatively, set it in `Makefile.systype` as before (see [here](gizmo_setup.md#makefilesystype) for details).
 You can get more tips from Vasilii in `Makefile`, in the segment that you just pasted.
 
-Another thing to do as of Sept. 2025 (if you are using the latest master branch from August 12th), is 
-fix the imbalanced brackets if your code fails to compile. Namely, add 2 brackets in line 861 in file 
-`galaxy_sf/blackholes/blackhole_swallow_and_kick.c`
+*Old code only:* if you are still on the archived Bitbucket `master` branch (August 12th, 2025 version)
+and the code fails to compile, fix the imbalanced brackets by adding 2 brackets in line 861 in file 
+`galaxy_sf/blackholes/blackhole_swallow_and_kick.c`. The new GitHub code doesn't have this problem
+(the file is now `sinks/sink_swallow_and_kick.cc`).
 
 You're all set to [run GIZMO](gizmo_setup.md).
 

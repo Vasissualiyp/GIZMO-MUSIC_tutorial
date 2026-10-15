@@ -88,7 +88,8 @@ Ask questions in person or on GitHub Issues! Here's some general info:
 
 ## 📖 References
 
-- [GIZMO Documentation](http://www.tapir.caltech.edu/~phopkins/Site/GIZMO_files/gizmo_documentation.html)
+- [GIZMO Documentation](https://github.com/pfhopkins/gizmo/blob/gpu_kokkos_unified/docs/gizmo_documentation.md) (lives in the `gpu_kokkos_unified` branch; also at `scripts/gizmo_documentation.md` in other branches)
+- [GIZMO repository](https://github.com/pfhopkins/gizmo) (public; `starforge_dev` branch for STARFORGE)
 - [MUSIC Documentation](https://www-n.oca.eu/ohahn/MUSIC/)
 
 ---

@@ -9,7 +9,7 @@ Once you loaded all the necessary modules on your machine, here are the
 steps that you have to undergo if you want to run GIZMO:
 1. [Git clone relevant GIZMO repo](#git-clone-gizmo-repo)
 2. [Add your system compile flags to `Makefile` (only for starq/nix or if the system is not in the gizmo repo yet)](#makefile-edits)
-3. [Change `Makefile.systype` to your system name](#makefile.systype)
+3. [Tell GIZMO your system name (`~/.gizmo` or `Makefile.systype`)](#makefilesystype)
 4. [Move `TREECOOL` to your runtime directory](#move-treecool)
 5. [Setup the compilation flags in `Config.sh`](#set-compilation-flags)
 6. [Get the spcool tables](#get-spcool-tables)
@@ -21,32 +21,48 @@ steps that you have to undergo if you want to run GIZMO:
 
 ## Git clone GIZMO repo
 
-If you don't have access to any private gizmo repositories, talk to Norm to ask Phil Hopkins/Mike Grudić to 
-add you to the repository, if you can.
+As of October 2026, GIZMO lives in a single **public** GitHub repository,
+[github.com/pfhopkins/gizmo](https://github.com/pfhopkins/gizmo), which holds both the development
+and stable branches. No access request is needed anymore. The old repositories
+(`github.com/pfhopkins/gizmo-public`, `bitbucket.org/phopkins/gizmo-public`,
+`bitbucket.org/phopkins/gizmo`) are kept only as archives and are no longer
+updated, so don't clone them for new work.
 
-If you don't have access, you can clone the public GIZMO repo with:
+Clone the repo with:
 ```
-git clone git@bitbucket.org:phopkins/gizmo-public.git gizmo
+git clone https://github.com/pfhopkins/gizmo.git gizmo
 ```
+(or `git@github.com:pfhopkins/gizmo.git` if you have SSH keys set up on GitHub).
 
-Private GIZMO repo can be cloned with:
-```
-git clone git@bitbucket.org:phopkins/gizmo.git gizmo
-```
-
-Private GIZMO+STARFORGE repo can be cloned with:
-```
-git clone git@bitbucket.org:guszejnov/gizmo_imf.git gizmo
-```
+Then pick the branch that matches your work. The useful ones are:
+* `gizmo-cpp` - the default branch (what you get right after cloning)
+* `starforge_dev` - GIZMO+STARFORGE. This replaces the old private
+  `bitbucket.org/guszejnov/gizmo_imf` repo, so use it for star formation / STARFORGE runs:
+  ```
+  git clone -b starforge_dev https://github.com/pfhopkins/gizmo.git gizmo
+  ```
+* `gpu_kokkos_unified` - the GPU-enabled (Kokkos) version. You don't need it
+  for CPU runs, but it has the most up-to-date documentation (see [below](#documentation)).
 
 After you git cloned successfully, navigate to the new directory:
 ```
 cd gizmo
 ```
-This is GIZMO source code. Here of current interest we have 3 files:
+This is GIZMO source code. Note that the code is now **C++** (C++17): the source
+files are `.cc` instead of `.c`, so your Makefile block needs a C++ MPI compiler
+(`CXX = mpicxx`) in addition to `CC`. Here of current interest we have 3 files:
 `Makefile`, `Makefile.systype`, and `Config.sh` 
 (the last one is not created yet, but you can check out 
 `Template_Config.sh` to get an example.
+
+### Documentation
+The GIZMO User Guide is no longer maintained on Phil Hopkins' website. It now
+ships with the code as a Markdown file:
+* the most up-to-date copy is in the `gpu_kokkos_unified` branch: 
+  [`docs/gizmo_documentation.md`](https://github.com/pfhopkins/gizmo/blob/gpu_kokkos_unified/docs/gizmo_documentation.md)
+* in the other branches (e.g. `starforge_dev`) a copy lives at `scripts/gizmo_documentation.md`
+  inside your clone, so you can read it offline, e.g. with `less scripts/gizmo_documentation.md`
+  or `grep -n MaxMemSize scripts/gizmo_documentation.md`.
 
 ## Makefile edits
 **This only applies if you are running on starq on nix! 
@@ -69,11 +85,32 @@ For Nix, you also have to change the line `PERL = /usr/bin/perl` to
 `PERL = $(PERL_PATH)/bin/perl` in the beginning of Makefile.
 
 ## Makefile.systype
-In another file, `Makefile.systype`, uncomment your system and comment out  
-any other systems (by default it is Frontera).
+GIZMO picks the `Makefile` block for your machine from the `SYSTYPE` variable.
+In newer versions there are three ways to set it, from highest to lowest priority:
 
-If your machine isn't there, comment everything out and append your system
-just like any other. The variables for our machines are 
+1. **Environment variable**: `export SYSTYPE=Trillium` (e.g. in your `.bashrc`).
+   This overrides everything else, so if a build picks the wrong machine
+   block, check `echo $SYSTYPE` first.
+2. **`~/.gizmo` file (recommended)**: create a file `~/.gizmo` in your home
+   directory containing just
+   ```
+   SYSTYPE="Trillium"
+   ```
+   (with your system name). You only need to do this once per machine, and it
+   then works for every fresh clone, so you no longer have to edit
+   `Makefile.systype` each time.
+3. **`Makefile.systype`** (the old way): in this file, uncomment your system and
+   comment out any other systems. If your machine isn't there, comment
+   everything out and append your system just like any other. The file is
+   tracked by git, so editing it can cause merge conflicts when you pull updates.
+
+Don't pass it as `make SYSTYPE=Trillium`: a value set on the `make` command
+line loses its quotes and won't match the `"Trillium"` block. Use one of the
+three ways above instead.
+
+Older clones don't read `~/.gizmo` at all. For those, edit `Makefile.systype` as before.
+
+The variables for our machines are 
 * `Trillium` for SciNet Trillium
 * `SciNet` for SciNet Niagara
 * `CITA` for non-starq CITA machines
@@ -107,7 +144,7 @@ And maybe, if I'm feeling adventurous:
 OPENMP=2
 MULTIPLEDOMAINS=16
 ```
-Check out [gizmo docs](http://www.tapir.caltech.edu/~phopkins/Site/GIZMO_files/gizmo_documentation.html) 
+Check out [gizmo docs](https://github.com/pfhopkins/gizmo/blob/gpu_kokkos_unified/docs/gizmo_documentation.md) 
 for a complete set of instructions on what flags do what.
 Add all those to `Config.sh` file in gizmo source directory.
 
@@ -159,7 +196,7 @@ You also can pipe errors with `make -j20 2&> err.out` to proccess them easier.
 
 Just like contents of `Config.sh`, the run parameters file for GIZMO
 has a lot of options,
-check out [gizmo docs](http://www.tapir.caltech.edu/~phopkins/Site/GIZMO_files/gizmo_documentation.html) 
+check out [gizmo docs](https://github.com/pfhopkins/gizmo/blob/gpu_kokkos_unified/docs/gizmo_documentation.md) 
 for those. It doesn't really matter where the parameter file is located,
 you will be referencing it when you will be running GIZMO.
 
