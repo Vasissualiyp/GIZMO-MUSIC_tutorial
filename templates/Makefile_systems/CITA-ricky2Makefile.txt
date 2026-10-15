@@ -1,0 +1,27 @@
+
+ifeq ($(SYSTYPE),"CITA-ricky2")
+## CITA ricky2 cluster (PBS server bob2, Rocky Linux 9.6, OpenHPC; nodes tpb2xx:
+## 2x Intel Xeon Gold 6148 = 80 cores (AVX-512), ~189 GB; queues earthq/marsq/jupiterq/...).
+## Same CPU as the ricky2 login node, so -march=native builds there run on the compute nodes.
+## Load before building AND in job scripts (OpenHPC gnu14 + openmpi5 toolchain):
+##    module load gnu14 openmpi5 hdf5 fftw gsl
+## Library paths come from the OpenHPC module variables (GSL_INC/LIB, FFTW_INC/LIB, HDF5_INC/LIB),
+## and are rpath'ed so the binary also runs if the modules are not loaded.
+## The old /cita/modules stack (CITA-new systype) is built for the previous OS; don't mix the two.
+CC       =  mpicc
+CXX      =  mpicxx
+FC       =  mpif90
+OPTIMIZE =  -O3 -march=native -mtune=native -funroll-loops -finline-functions -flto=auto -fno-fat-lto-objects
+OPTIMIZE += -g -Wall
+ifeq (OPENMP,$(findstring OPENMP,$(CONFIGVARS)))
+    OPTIMIZE += -fopenmp
+endif
+GSL_INCL =  -I$(GSL_INC)
+GSL_LIBS =  -L$(GSL_LIB) -Wl,-rpath,$(GSL_LIB) -lgsl -lgslcblas
+FFTW_INCL=  -I$(FFTW_INC)
+FFTW_LIBS=  -L$(FFTW_LIB) -Wl,-rpath,$(FFTW_LIB)
+MPICHLIB =
+HDF5INCL =  -I$(HDF5_INC) -DH5_USE_16_API
+HDF5LIB  =  -L$(HDF5_LIB) -Wl,-rpath,$(HDF5_LIB) -lhdf5 -lz
+OPT     += -DUSE_MPI_IN_PLACE
+endif

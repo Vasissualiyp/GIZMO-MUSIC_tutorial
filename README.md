@@ -42,6 +42,7 @@ Generally, before you run/compile anything, you should load required modules (i.
 - [Setting up on Trillium](docs/trillium_setup.md)
 - [Setting up on Niagara](docs/niagara_setup.md)
 - [Setting up on CITA Cluster](docs/cita_setup2.md)
+- [Setting up on CITA ricky2 Cluster](docs/cita_ricky2_setup.md)
 - [Setting up on CITA Starq Cluster](docs/starq_setup.md)
 - [Setting up on Any Machine with Nix](docs/nix_setup.md)
 
@@ -62,6 +63,9 @@ MUSIC config files:
 GIZMO Makefile system files:
 * `NixMakefile.txt`
 * `CITA-starqMakefile.txt`
+* `CITA-newMakefile.txt`
+* `CITA-ricky2Makefile.txt`
+* `TrilliumMakefile.txt`
 
 GIZMO parameter files:
 * `Config.sh`
@@ -71,6 +75,7 @@ GIZMO parameter files:
 GIZMO job submisson files:
 * `Grun_starq.sh`
 * `Grun_CITA.sh`
+* `Grun_CITA-ricky2.sh`
 * `Grun_Niagara.sh`
 
 MUSIC job submisson files:
